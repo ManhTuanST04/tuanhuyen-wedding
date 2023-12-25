@@ -1,0 +1,12 @@
+.wish-list-wrap {
+    max-height: 200px;
+    overflow: auto;
+    padding: 20px;
+    border: 2px solid #e374a9;
+    border-radius: 15px 
+}
+
+.wish-list-wrap .wish-item {
+    margin: 20px 0;
+    border-bottom: 1px solid;
+}
