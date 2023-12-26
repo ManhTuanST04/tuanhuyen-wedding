@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FirestoreService } from '../../services/firestore.service';
 import { AboutComponent } from './about/about.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { EventComponent } from './event/event.component';
@@ -29,5 +28,7 @@ import { WishComponent } from './wish/wish.component';
 })
 export class HomeComponent {
   
+  constructor() {
+  }
 
 }
