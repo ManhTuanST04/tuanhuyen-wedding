@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
+import { Firestore, addDoc, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class FirestoreService {
   }
 
   addItem(item: any): Promise<any> {
-    return this.itemCollection.add(item);
+    return addDoc(this.itemCollection, item);
   }
 
 

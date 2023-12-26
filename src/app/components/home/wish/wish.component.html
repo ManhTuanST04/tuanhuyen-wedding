@@ -1,24 +1,84 @@
-<pre>{{items | json}}</pre>
-
-<div class="container-fluid py-5" id="rsvp">
+<div class="container-fluid" id="rsvp">
     <div class="container py-5">
         <div class="section-title position-relative text-center">
-            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Lời chúc mừng hạnh phúc</h6>
+            <h6
+                class="text-uppercase text-primary mb-3"
+                style="letter-spacing: 3px"
+            >
+                Lời chúc mừng hạnh phúc
+            </h6>
             <h1 class="font-secondary display-4">Gửi lời chúc</h1>
             <i class="far fa-heart text-dark"></i>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="text-center">
-                    <form>
+                    <form [formGroup]="wishForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
-                            <input type="text" class="form-control bg-secondary border-0 py-4 px-3" placeholder="Tên của bạn"/>
+                            <input
+                                type="text"
+                                formControlName="username"
+                                id="username"
+                                class="form-control bg-secondary border-0 py-4 px-3"
+                                placeholder="Tên của bạn"
+                                required
+                                minlength="2"
+                                maxlength="50"
+                            />
+                            <div
+                                *ngIf="
+                                    username.invalid &&
+                                    (username.dirty || username.touched)
+                                "
+                                class="text-danger"
+                            >
+                                <div *ngIf="username.errors?.['required']">
+                                    Cho tôi biết tên của bạn
+                                </div>
+                                <div *ngIf="username.errors?.['minlength']">
+                                    Tên phải có ít nhất 2 ký tự
+                                </div>
+                                <div *ngIf="username.errors?.['maxlength']">
+                                    Tên dài quá rồi bạn ơi
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control bg-secondary border-0 py-2 px-3" rows="5" placeholder="Lời chúc" required="required"></textarea>
+                            <textarea
+                                formControlName="message"
+                                id="message"
+                                class="form-control bg-secondary border-0 py-2 px-3"
+                                rows="5"
+                                placeholder="Lời chúc"
+                                required
+                                minlength="10"
+                                maxlength="250"
+                            ></textarea>
+                            <div
+                                *ngIf="
+                                    message.invalid &&
+                                    (message.dirty || message.touched)
+                                "
+                                class="text-danger"
+                            >
+                                <div *ngIf="message.errors?.['required']">
+                                    Hãy nhập những lời chúc tốt đẹp nhé
+                                </div>
+                                <div *ngIf="message.errors?.['minlength']">
+                                    Hãy nhập 1 lời chúc dài hơn một chút nhé
+                                </div>
+                                <div *ngIf="username.errors?.['maxlength']">
+                                    Chỉ cần một lời chúc ngắn nhưng sẽ rất ý nghĩa
+                                </div>
+                            </div>
                         </div>
                         <div>
-                            <button class="btn btn-primary font-weight-bold py-3 px-5" type="submit">Gửi</button>
+                            <button
+                                class="btn btn-primary font-weight-bold py-3 px-5"
+                                type="submit"
+                            >
+                                Gửi
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -35,12 +95,12 @@
             <i class="far fa-heart text-dark"></i>
         </div>
         <div class="row justify-content-center">
-            <div class="col-lg-8 wish-list-wrap" >
-                <div class="wish-item">
-                    <strong>Bá Quân:</strong> Chúc mừng hạnh phúc 2 bạn
-                </div>
-                <div class="wish-item">
-                    <strong>Bá Quân:</strong> Chúc mừng hạnh phúc 2 bạn
+            <div class="col-lg-8 wish-list-wrap">
+                <div *ngFor="let item of items; index as i">
+                    <div class="wish-item">
+                        {{ items.length - i }}. <strong>{{ item.username }}</strong
+                        >: {{ item.message }}
+                    </div>
                 </div>
             </div>
         </div>
