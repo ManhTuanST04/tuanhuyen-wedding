@@ -54,7 +54,7 @@ export class WishComponent {
 
         if (!_.isEmpty(messageWish)) {
             let res = this.badWordService.isContainBadWord(messageWish);
-            console.log('isContainBadWord =>', res);
+            console.log('isContainBadWord => ', res);
             if(res) {
                 this.wishForm.reset();
 
