@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
     selector: 'app-wish',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule ],
+    imports: [CommonModule, ReactiveFormsModule],
     templateUrl: './wish.component.html',
     styleUrl: './wish.component.css'
 })
@@ -55,7 +55,7 @@ export class WishComponent {
         if (!_.isEmpty(messageWish)) {
             let res = this.badWordService.isContainBadWord(messageWish);
             console.log('isContainBadWord => ', res);
-            if(res) {
+            if (res) {
                 this.wishForm.reset();
 
                 alert('Hãy viết những lời chúc tốt đẹp nhất nhé!');
@@ -66,13 +66,22 @@ export class WishComponent {
 
         await this.firestoreService.addItem(formData);
         this.wishForm.reset();
+
+        this.openToast();
     }
 
-    opentToast () {
+    openToast() {
         try {
-            this.toastr.success('Hello world!', 'Toastr fun!');
+            this.toastr.success(
+                'Tuấn Huyền cảm ơn lời chúc của bạn ạ',
+                'Gửi lời chúc thành công!',
+                {
+                    progressBar: true,
+                    progressAnimation: 'decreasing'
+                }
+            );
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
     }
 }
