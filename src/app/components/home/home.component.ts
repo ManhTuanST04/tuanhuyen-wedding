@@ -8,6 +8,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StoryComponent } from './story/story.component';
 import { WishComponent } from './wish/wish.component';
+import { MusicComponent } from './music/music.component';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,7 @@ import { WishComponent } from './wish/wish.component';
     GalleryComponent,
     StoryComponent,
     WishComponent,
+    MusicComponent,
     CommonModule
   ],
   templateUrl: './home.component.html',
