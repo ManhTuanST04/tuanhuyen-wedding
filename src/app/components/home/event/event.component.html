@@ -1,30 +1,59 @@
 <div class="container-fluid py-5" id="event">
     <div class="container py-5">
         <div class="section-title position-relative text-center">
-            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Event</h6>
-            <h1 class="font-secondary display-4">Our Wedding Event</h1>
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px">Thời gian</h6>
+            <h1 class="font-secondary display-4">Sự Kiện Cưới</h1>
             <i class="far fa-heart text-dark"></i>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
-                <h5 class="font-weight-normal text-muted mb-3 pb-3">Clita ipsum aliquyam dolor diam dolores elitr nonumy. Rebum sea vero ipsum eirmod tempor kasd. Diam amet lorem erat eos sit lorem elitr justo</h5>
+                <h5 class="font-weight-normal text-muted mb-3 pb-3">
+                    Tình yêu không làm cho thế giới quay tròn. Tình yêu là những gì làm cho chuyến
+                    đi đáng giá.
+                </h5>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 border-right border-primary">
                 <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
-                    <img class="img-fluid mb-4" src="assets/img/event-1.jpg" alt="">
-                    <h4 class="mb-3">The Reception</h4>
-                    <p class="mb-2">123 Street, New York, USA</p>
-                    <p class="mb-0">12:00AM - 13:00PM</p>
+                    <img class="img-fluid mb-4" src="assets/img/event-1.jpg" alt="" />
+                    <h4 class="mb-3">TIỆC CƯỚI NHÀ NAM</h4>
+                    <p class="mb-2">Tư gia gia đình Xương Lan</p>
+                    <p class="mb-2">Khu 11, Quân Khê, Hạ Hòa, Phú Thọ</p>
+                    <p class="mb-2">11h 23-24/03/2024 Dương Lịch</p>
+                    <p class="mb-2">14-15/02/2024 Âm Lịch</p>
+
+                    <button class="btn btn-primary font-weight-bold mt-3 mr-2 px-2" type="button">
+                        + Thêm vào lịch
+                    </button>
+                    <button
+                        class="btn btn-primary font-weight-bold mt-3 px-2"
+                        type="button"
+                        (click)="onOpenMap('male')"
+                    >
+                        > Mở bản đồ
+                    </button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="text-center text-md-left ml-md-3">
-                    <img class="img-fluid mb-4" src="assets/img/event-2.jpg" alt="">
-                    <h4 class="mb-3">Wedding Party</h4>
-                    <p class="mb-2">123 Street, New York, USA</p>
-                    <p class="mb-0">12:00AM - 13:00PM</p>
+                    <img class="img-fluid mb-4" src="assets/img/event-2.jpg" alt="" />
+                    <h4 class="mb-3">TIỆC CƯỚI NHÀ NỮ</h4>
+                    <p class="mb-2">Tư gia gia đình Hương Tạo</p>
+                    <p class="mb-2">Tùng Châu, Đức Thọ, Hà Tĩnh</p>
+                    <p class="mb-2">11h 16-17/03/2024 Dương Lịch</p>
+                    <p class="mb-2">07-08/02/2024 Âm Lịch</p>
+
+                    <button
+                        class="btn btn-primary font-weight-bold mt-3 px-2 mr-2"
+                        type="button"
+                        (click)="onOpenMap('female')"
+                    >
+                        Mở bản đồ <
+                    </button>
+                    <button class="btn btn-primary font-weight-bold mt-3 px-2" type="button">
+                        Thêm vào lịch +
+                    </button>
                 </div>
             </div>
         </div>
