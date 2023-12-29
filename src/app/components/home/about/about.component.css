@@ -1,3 +1,30 @@
 .quick-action-wrapper {
     background-color: #EDF5F7;
 }
+
+.donate-box {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.donate-box .donate-card {
+    position: relative;
+}
+.donate-box .donate-card {
+    width: calc(50% - 40px);
+    margin: 20px;
+    padding: 20px;
+    border: 3px solid #f23b43;
+    border-radius: 10px;
+}
+
+.donate-box .donate-card .qr-code-image {
+    max-width: 150px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
