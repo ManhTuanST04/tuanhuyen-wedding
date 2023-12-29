@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UtilsService } from '../../../services/utils.service';
 
 @Component({
     selector: 'app-event',
@@ -8,6 +9,10 @@ import { Component } from '@angular/core';
     styleUrl: './event.component.css'
 })
 export class EventComponent {
+    constructor(private utilsService: UtilsService) {
+
+    }
+
     onOpenMap(gender: string): void {
         if (!gender) return;
 
@@ -20,4 +25,15 @@ export class EventComponent {
 
         window.open(mapLink);
     }
+
+    onAddEvent = () => {
+        let os = this.utilsService.getMobileOperatingSystem();
+
+        if(os === 'iOS') {
+            window.open('https://www.addevent.com/event/vW19740176+apple');
+        } else {
+            window.open('https://www.addevent.com/event/vW19740176+google');
+        }
+    }
+    
 }
