@@ -34,7 +34,8 @@ export class EventComponent {
             // window.open('https://www.addevent.com/event/vW19740176+apple');
             this.calendarService.downloadICSFile({});
         } else {
-            window.open('https://www.addevent.com/event/vW19740176+google');
+            // window.open('https://www.addevent.com/event/vW19740176+google');
+            this.calendarService.downloadICSFile({});
         }
     }
     

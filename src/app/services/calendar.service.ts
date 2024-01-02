@@ -25,7 +25,7 @@ export class CalendarService {
 
         const icsContent = `
             BEGIN:VCALENDAR
-            PRODID:-//Tuấn Huyền Wedding//tuanhuyenwedding.info v1.7//EN
+            PRODID:-//AddEvent Inc//AddEvent.com v1.7//EN
             VERSION:2.0
             BEGIN:VTIMEZONE
             TZID:Asia/Ho_Chi_Minh
@@ -37,15 +37,15 @@ export class CalendarService {
             END:STANDARD
             END:VTIMEZONE
             BEGIN:VEVENT
-            DTSTAMP:20240102T130411Z
+            DTSTAMP:20240102T135028Z
             STATUS:CONFIRMED
             UID:d2e893fc-8949-4d27-a377-9395ee8bdbec
             SEQUENCE:0
             DTSTART;TZID=Asia/Ho_Chi_Minh:20240102T201500
             DTEND;TZID=Asia/Ho_Chi_Minh:20240102T231500
             SUMMARY:Cưới Tuấn Huyền Test
-            DESCRIPTION:Sự kiện cưới hỏi nhà trai\n\n------\n\nCung cấp bởi tuanhuyenwedding.info \nHẹn các bạn tại lễ thành hôn của chúng mình <3\n
-            X-ALT-DESC;FMTTYPE=text/html:Sự kiện cưới hỏi nhà trai<br /><br />------<br /><br />Cung cấp bởi tuanhuyenwedding.info <br>Hẹn các bạn tại lễ thành hôn của chúng mình <3<br>
+            DESCRIPTION:Sự kiện cưới hỏi nhà trai\n\n------\n\nPowered by addevent.com \nShare your next event with us!\n
+            X-ALT-DESC;FMTTYPE=text/html:Sự kiện cưới hỏi nhà trai<br /><br />------<br /><br />Powered by addevent.com <br>Share your next event with us!<br>
             LOCATION:Hiền Lương\, Hạ Hòa\, Phú Thọ
             BEGIN:VALARM
             TRIGGER:-PT30M
@@ -55,7 +55,7 @@ export class CalendarService {
             TRANSP:OPAQUE
             END:VEVENT
             END:VCALENDAR
-        `
+        `;
 
         const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
         const link = document.createElement('a');
@@ -64,5 +64,4 @@ export class CalendarService {
         document.body.appendChild(link);
         link.click();
     }
-
 }
