@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UtilsService } from '../../../services/utils.service';
+import { CalendarService } from '../../../services/calendar.service';
 
 @Component({
     selector: 'app-event',
@@ -9,7 +10,7 @@ import { UtilsService } from '../../../services/utils.service';
     styleUrl: './event.component.css'
 })
 export class EventComponent {
-    constructor(private utilsService: UtilsService) {
+    constructor(private utilsService: UtilsService, private calendarService: CalendarService) {
 
     }
 
@@ -30,7 +31,8 @@ export class EventComponent {
         let os = this.utilsService.getMobileOperatingSystem();
 
         if(os === 'iOS') {
-            window.open('https://www.addevent.com/event/vW19740176+apple');
+            // window.open('https://www.addevent.com/event/vW19740176+apple');
+            this.calendarService.downloadICSFile({});
         } else {
             window.open('https://www.addevent.com/event/vW19740176+google');
         }
