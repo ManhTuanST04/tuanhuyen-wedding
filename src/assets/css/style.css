@@ -9530,25 +9530,6 @@ a.text-dark:hover, a.text-dark:focus {
   border-radius: 50%;
 }
 
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.play-music {
-  position: fixed;
-  display: inline;
-  text-align: center;
-  left: 30px;
-  bottom: 30px;
-  z-index: 11;
-  animation: spin 2s infinite;
-}
-
 @keyframes action {
   0% {
     transform: translateY(0);

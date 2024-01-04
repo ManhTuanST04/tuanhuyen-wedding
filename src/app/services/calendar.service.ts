@@ -23,8 +23,7 @@ export class CalendarService {
         //     END:VEVENT
         //     END:VCALENDAR`;
 
-        const icsContent =
-`BEGIN:VCALENDAR
+        const icsContent = `BEGIN:VCALENDAR
 PRODID:-//AddEvent Inc//AddEvent.com v1.7//EN
 VERSION:2.0
 BEGIN:VTIMEZONE

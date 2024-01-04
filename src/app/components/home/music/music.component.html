@@ -1,1 +1,4 @@
-<a class="btn btn-lg btn-outline-primary btn-lg-circle play-music" (click)="playMusic()"><i class="fa fa-music"></i></a>
+<a class="btn btn-lg btn-outline-primary btn-lg-circle play-music" (click)="playMusic()">
+    <i class="fa fa-volume-up" *ngIf="isAudioPlaying"></i>
+    <i class="fa fa-volume-mute" *ngIf="!isAudioPlaying"></i>
+</a>
