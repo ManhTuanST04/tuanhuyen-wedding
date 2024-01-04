@@ -21,9 +21,6 @@
                                 id="username"
                                 class="form-control bg-secondary border-0 py-4 px-3"
                                 placeholder="Tên của bạn"
-                                required
-                                minlength="2"
-                                maxlength="30"
                             />
                             <div
                                 *ngIf="
@@ -33,7 +30,7 @@
                                 class="text-danger"
                             >
                                 <div *ngIf="username.errors?.['required']">
-                                    Cho tôi biết tên của bạn
+                                    Chúng mình muốn biết tên của bạn
                                 </div>
                                 <div *ngIf="username.errors?.['minlength']">
                                     Tên phải có ít nhất 2 ký tự
@@ -50,9 +47,6 @@
                                 class="form-control bg-secondary border-0 py-2 px-3"
                                 rows="5"
                                 placeholder="Lời chúc"
-                                required
-                                minlength="10"
-                                maxlength="250"
                             ></textarea>
                             <div
                                 *ngIf="
