@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import moment from 'moment';
 import _ from 'lodash';
@@ -16,20 +16,26 @@ import { ToastrService } from 'ngx-toastr';
     styleUrl: './wish.component.css'
 })
 export class WishComponent {
-    // private modalService = inject(NgbModal);
     items: any[] = [];
-    wishForm: FormGroup;
     username: FormControl;
     message: FormControl;
+    wishForm: FormGroup;
 
     constructor(
         private firestoreService: FirestoreWishService,
         private badWordService: BadWordService,
         private toastr: ToastrService
     ) {
-        this.username = new FormControl('');
-        this.message = new FormControl('');
-
+        this.username = new FormControl('', [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(30)
+        ]);
+        this.message = new FormControl('', [
+            Validators.required,
+            Validators.minLength(10),
+            Validators.maxLength(250)
+        ]);
         this.wishForm = new FormGroup({
             username: this.username,
             message: this.message
@@ -46,12 +52,24 @@ export class WishComponent {
         });
     }
 
+    isSuccessData = (data: any) => {
+        if (!this.wishForm.valid) return false;
+
+        let username = data.username.trim();
+        let messageWish = data.message.trim();
+
+        if (username.length < 2 || username.length > 30) return false;
+
+        if (messageWish.length < 10 || messageWish.length > 250) return false;
+
+        return true;
+    };
+
     async onSubmit() {
-        if (!this.wishForm.valid) return;
-
         let formData = this.wishForm.value;
-        let messageWish = formData.message;
+        if (!this.isSuccessData(formData)) return;
 
+        let messageWish = formData.message.trim();
         if (!_.isEmpty(messageWish)) {
             let res = this.badWordService.isContainBadWord(messageWish);
             console.log('isContainBadWord => ', res);
@@ -62,7 +80,7 @@ export class WishComponent {
                 return;
             }
         }
-        formData.createdAt = moment(new Date()).format('DD/MM/yyyy HH:mm:ss');
+        formData.createdAt = moment(new Date()).format('yyyy/MM/DD HH:mm:ss');
 
         await this.firestoreService.addItem(formData);
         this.wishForm.reset();
