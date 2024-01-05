@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CalendarService } from '../../../services/calendar.service';
 import Utils from '../../../shared/utils';
-import { EVENT_INFO_FEMALE, EVENT_INFO_MALE, GG_MAP_FEMALE, GG_MAP_MALE } from '../../../shared/constants';
+import { EVENT_INFO_FEMALE, EVENT_INFO_MALE, GG_MAP_FEMALE, GG_MAP_MALE, OPERATION_SYSTEM } from '../../../shared/constants';
 
 @Component({
     selector: 'app-event',
@@ -30,20 +30,19 @@ export class EventComponent {
         let os = Utils.getMobileOperatingSystem();
 
         if (gender === 'male') {
-            if (os === 'iOS') {
+            if (os === OPERATION_SYSTEM.IOS) {
                 // window.open('https://www.addevent.com/event/vW19740176+apple');
                 this.calendarService.downloadICSFile(EVENT_INFO_MALE);
             } else {
                 window.open('https://www.addevent.com/event/vW19740176+google');
             }
         } else {
-            if (os === 'iOS') {
-                // window.open('https://www.addevent.com/event/vW19740176+apple');
+            if (os === OPERATION_SYSTEM.IOS) {
                 this.calendarService.downloadICSFile(EVENT_INFO_FEMALE);
             } else {
                 window.open('https://www.addevent.com/event/vW19740176+google');
             }
         }
-
     };
+    
 }
