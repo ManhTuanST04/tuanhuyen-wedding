@@ -46,7 +46,7 @@ export class WishComponent {
         this.wishForm = new FormGroup({
             username: this.username,
             message: this.message
-        }, { updateOn: 'submit' });
+        });
     }
 
     loadItems(): void {

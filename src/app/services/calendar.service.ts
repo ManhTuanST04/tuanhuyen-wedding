@@ -8,21 +8,6 @@ export class CalendarService {
     constructor() {}
 
     downloadICSFile(eventData: any) {
-        // const icsContent = `BEGIN:VCALENDAR
-        //     VERSION:2.0
-        //     PRODID:-//Your Company//Your App//EN
-        //     CALSCALE:GREGORIAN
-        //     BEGIN:VEVENT
-        //     UID:${eventData.uid}
-        //     DTSTAMP:${eventData.timestamp}
-        //     DTSTART:${eventData.startDate}
-        //     DTEND:${eventData.endDate}
-        //     SUMMARY:${eventData.summary}
-        //     DESCRIPTION:${eventData.description}
-        //     LOCATION:${eventData.location}
-        //     END:VEVENT
-        //     END:VCALENDAR`;
-
         const icsContent = `BEGIN:VCALENDAR
 PRODID:-//AddEvent Inc//AddEvent.com v1.7//EN
 VERSION:2.0
