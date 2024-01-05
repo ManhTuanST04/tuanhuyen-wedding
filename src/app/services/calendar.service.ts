@@ -5,11 +5,11 @@ import _ from 'lodash';
     providedIn: 'root'
 })
 export class CalendarService {
-    constructor() {}
+    constructor() { }
 
     downloadICSFile(eventData: any) {
         const icsContent = `BEGIN:VCALENDAR
-PRODID:-//AddEvent Inc//AddEvent.com v1.7//EN
+PRODID:-//Tuấn Huyền Wedding//tuanhuyenwedding.com//EN
 VERSION:2.0
 BEGIN:VTIMEZONE
 TZID:Asia/Ho_Chi_Minh
@@ -23,14 +23,14 @@ END:VTIMEZONE
 BEGIN:VEVENT
 DTSTAMP:20240102T135028Z
 STATUS:CONFIRMED
-UID:d2e893fc-8949-4d27-a377-9395ee8bdbec
+UID:tuanhuyen-wedding-id
 SEQUENCE:0
-DTSTART;TZID=Asia/Ho_Chi_Minh:20240102T201500
-DTEND;TZID=Asia/Ho_Chi_Minh:20240102T231500
-SUMMARY:Cưới Tuấn Huyền Test
-DESCRIPTION:Sự kiện cưới hỏi nhà trai
-X-ALT-DESC;FMTTYPE=text/html:Sự kiện cưới hỏi nhà trai<br /><br />------<br /><br />Powered by addevent.com <br>Share your next event with us!<br>
-LOCATION:Hiền Lương\, Hạ Hòa\, Phú Thọ
+DTSTART;TZID=Asia/Ho_Chi_Minh:${eventData.START_TIME}
+DTEND;TZID=Asia/Ho_Chi_Minh:${eventData.END_TIME}
+SUMMARY:💍Lễ Thành Hôn\\n💞Mạnh Tuấn & Khánh Huyền💞
+DESCRIPTION:💍Lễ Thành Hôn Mạnh Tuấn & Khánh Huyền💍 \\nSự có mặt của bạn là niềm vinh dự với vợ chồng chúng mình ❤️\\nRất hân hạnh được đón tiếp!\\n\\n📲Liên hệ chú rể: 0377560590\\n📲Liên hệ cô dâu: 0353578378\\nWebsite: tuanhuyenwedding.info
+X-ALT-DESC;FMTTYPE=text/html:Lễ Thành Hôn Mạnh Tuấn & Khánh Huyền
+LOCATION:📍${eventData.LOCATION}
 BEGIN:VALARM
 TRIGGER:-PT30M
 ACTION:DISPLAY
