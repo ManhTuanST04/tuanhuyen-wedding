@@ -5,8 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import moment from 'moment';
 import _ from 'lodash';
 import { FirestoreWishService } from '../../../services/firestore-wish.service';
-import { BadWordService } from '../../../services/bad-word.service';
 import { ToastrService } from 'ngx-toastr';
+import Utils from '../../../shared/utils';
 
 @Component({
     selector: 'app-wish',
@@ -17,33 +17,36 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class WishComponent {
     items: any[] = [];
-    username: FormControl;
-    message: FormControl;
-    wishForm: FormGroup;
+    username!: FormControl;
+    message!: FormControl;
+    wishForm!: FormGroup;
 
     constructor(
         private firestoreService: FirestoreWishService,
-        private badWordService: BadWordService,
         private toastr: ToastrService
     ) {
-        this.username = new FormControl('', [
-            Validators.required,
-            Validators.minLength(2),
-            Validators.maxLength(30)
-        ]);
-        this.message = new FormControl('', [
-            Validators.required,
-            Validators.minLength(10),
-            Validators.maxLength(250)
-        ]);
-        this.wishForm = new FormGroup({
-            username: this.username,
-            message: this.message
-        });
+
     }
 
     ngOnInit(): void {
         this.loadItems();
+
+        this.username = new FormControl('', [
+            Validators.required,
+            Validators.minLength(2),
+            Validators.maxLength(30),
+            Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)
+        ]);
+        this.message = new FormControl('', [
+            Validators.required,
+            Validators.minLength(10),
+            Validators.maxLength(250),
+            Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)
+        ]);
+        this.wishForm = new FormGroup({
+            username: this.username,
+            message: this.message
+        }, { updateOn: 'submit' });
     }
 
     loadItems(): void {
@@ -67,16 +70,18 @@ export class WishComponent {
 
     async onSubmit() {
         let formData = this.wishForm.value;
-        if (!this.isSuccessData(formData)) return;
+        if (!this.isSuccessData(formData)) {
+            return;
+        };
 
         let messageWish = formData.message.trim();
         if (!_.isEmpty(messageWish)) {
-            let res = this.badWordService.isContainBadWord(messageWish);
+            let res = Utils.isContainBadWord(messageWish);
             console.log('isContainBadWord => ', res);
             if (res) {
                 this.wishForm.reset();
 
-                alert('Hãy viết những lời chúc tốt đẹp nhất nhé!');
+                alert('Không gửi được do chứa từ ngữ hạn chế!');
                 return;
             }
         }

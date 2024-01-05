@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UtilsService } from '../../../services/utils.service';
 import { CalendarService } from '../../../services/calendar.service';
+import Utils from '../../../shared/utils';
 
 @Component({
     selector: 'app-event',
@@ -10,7 +10,7 @@ import { CalendarService } from '../../../services/calendar.service';
     styleUrl: './event.component.css'
 })
 export class EventComponent {
-    constructor(private utilsService: UtilsService, private calendarService: CalendarService) {
+    constructor(private calendarService: CalendarService) {
 
     }
 
@@ -28,7 +28,8 @@ export class EventComponent {
     }
 
     onAddEvent = () => {
-        let os = this.utilsService.getMobileOperatingSystem();
+        // let os = this.utilsService.getMobileOperatingSystem();
+        let os = Utils.getMobileOperatingSystem();
 
         if(os === 'iOS') {
             // window.open('https://www.addevent.com/event/vW19740176+apple');

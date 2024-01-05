@@ -24,18 +24,18 @@
                             />
                             <div
                                 *ngIf="
-                                    username.invalid &&
-                                    (username.dirty || username.touched)
+                                    username?.invalid &&
+                                    (username?.dirty || username?.touched) 
                                 "
                                 class="text-danger"
                             >
-                                <div *ngIf="username.errors?.['required']">
-                                    Chúng mình muốn biết tên của bạn
+                                <div *ngIf="username?.errors?.['required']">
+                                    Chúng mình muốn biết tên của bạn 💕
                                 </div>
-                                <div *ngIf="username.errors?.['minlength']">
+                                <div *ngIf="username?.errors?.['minlength'] || username?.errors?.['pattern']">
                                     Tên phải có ít nhất 2 ký tự
                                 </div>
-                                <div *ngIf="username.errors?.['maxlength']">
+                                <div *ngIf="username?.errors?.['maxlength']">
                                     Tên dài quá rồi bạn ơi
                                 </div>
                             </div>
@@ -50,20 +50,19 @@
                             ></textarea>
                             <div
                                 *ngIf="
-                                    message.invalid &&
-                                    (message.dirty || message.touched)
+                                    message?.invalid &&
+                                    (message?.dirty || message?.touched)
                                 "
                                 class="text-danger"
                             >
-                                <div *ngIf="message.errors?.['required']">
-                                    Hãy nhập những lời chúc tốt đẹp nhé
+                                <div *ngIf="message?.errors?.['required']">
+                                    Một lời chúc tốt đẹp là không thể thiếu 💕
                                 </div>
-                                <div *ngIf="message.errors?.['minlength']">
-                                    Hãy nhập 1 lời chúc dài hơn một chút nhé
+                                <div *ngIf="message?.errors?.['minlength'] || message?.errors?.['pattern']">
+                                    Hãy nhập lời chúc dài hơn một chút nữa nhé
                                 </div>
-                                <div *ngIf="username.errors?.['maxlength']">
-                                    Chỉ cần một lời chúc ngắn nhưng sẽ rất ý
-                                    nghĩa
+                                <div *ngIf="username?.errors?.['maxlength']">
+                                    Chỉ cần một lời chúc ngắn nhưng sẽ rất ý nghĩa
                                 </div>
                             </div>
                         </div>
@@ -71,6 +70,7 @@
                             <button
                                 class="btn btn-primary font-weight-bold py-3 px-5"
                                 type="submit"
+                                [disabled]="heroForm.invalid"
                             >
                                 Gửi
                             </button>
