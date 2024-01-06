@@ -1,7 +1,12 @@
 import { Component } from '@angular/core';
 import { CalendarService } from '../../../services/calendar.service';
 import Utils from '../../../shared/utils';
-import { EVENT_INFO_FEMALE, EVENT_INFO_MALE, GG_MAP_FEMALE, GG_MAP_MALE } from '../../../shared/constants';
+import {
+    EVENT_INFO_FEMALE,
+    EVENT_INFO_MALE,
+    GG_MAP_FEMALE,
+    GG_MAP_MALE
+} from '../../../shared/constants';
 
 @Component({
     selector: 'app-event',
@@ -11,7 +16,7 @@ import { EVENT_INFO_FEMALE, EVENT_INFO_MALE, GG_MAP_FEMALE, GG_MAP_MALE } from '
     styleUrl: './event.component.css'
 })
 export class EventComponent {
-    constructor(private calendarService: CalendarService) { }
+    constructor(private calendarService: CalendarService) {}
 
     onOpenMap(gender: string): void {
         if (!gender) return;
@@ -31,19 +36,18 @@ export class EventComponent {
 
         if (gender === 'male') {
             if (os === 'iOS') {
-                // window.open('https://www.addevent.com/event/vW19740176+apple');
                 this.calendarService.downloadICSFile(EVENT_INFO_MALE);
             } else {
-                window.open('https://www.addevent.com/event/vW19740176+google');
+                let urlGGCalendar = this.calendarService.genGoogleCalendarLink(EVENT_INFO_FEMALE);
+                window.open(urlGGCalendar);
             }
         } else {
             if (os === 'iOS') {
-                // window.open('https://www.addevent.com/event/vW19740176+apple');
                 this.calendarService.downloadICSFile(EVENT_INFO_FEMALE);
             } else {
-                window.open('https://www.addevent.com/event/vW19740176+google');
+                let urlGGCalendar = this.calendarService.genGoogleCalendarLink(EVENT_INFO_FEMALE);
+                window.open(urlGGCalendar);
             }
         }
-
     };
 }

@@ -5,7 +5,22 @@ import _ from 'lodash';
     providedIn: 'root'
 })
 export class CalendarService {
-    constructor() { }
+    constructor() {}
+
+    genGoogleCalendarLink(eventData: any) {
+        let baseUrl = 'https://calendar.google.com/calendar/u/0/r/eventedit';
+
+        let text = encodeURIComponent('💍Lễ Thành Hôn \n 💞Mạnh Tuấn & Khánh Huyền💞');
+        let details = encodeURIComponent(
+            '<h3>💍Lễ Thành Hôn Mạnh Tuấn & Khánh Huyền💍</h3> Sự có mặt của bạn là niềm vinh dự với vợ chồng chúng mình ❤️\nRất hân hạnh được đón tiếp!\n\n📲Liên hệ chú rể: 0377560590\n📲Liên hệ cô dâu: 0353578378\nWebsite: tuanhuyenwedding.info'
+        );
+        let location = encodeURIComponent(eventData.LOCATION);
+        let dates = encodeURIComponent(`${eventData.START_TIME}/${eventData.END_TIME}`);
+
+        let params = `text=${text}&details=${details}&location=${location}&dates=${dates}`;
+
+        return `${baseUrl}?${params}`;
+    }
 
     downloadICSFile(eventData: any) {
         const icsContent = `BEGIN:VCALENDAR
