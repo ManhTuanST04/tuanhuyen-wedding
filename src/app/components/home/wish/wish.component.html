@@ -79,14 +79,24 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center pt-5">
+            <div class="col-lg-8 wish-list-wrap">
+                <div *ngFor="let item of items; index as i">
+                    <div class="wish-item">
+                        {{ items.length - i }}.
+                        <strong>{{ item.username }}</strong
+                        >: {{ item.message }}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
     <div class="container">
         <div class="section-title position-relative text-center">
             <h1 class="font-secondary display-4">Danh sách lời chúc</h1>
-            <!-- <h1 class="font-secondary display-4">Gửi lời chúc</h1> -->
             <i class="far fa-heart text-dark"></i>
         </div>
         <div class="row justify-content-center">
@@ -101,4 +111,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

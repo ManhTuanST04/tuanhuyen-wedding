@@ -52,7 +52,7 @@ export class MusicComponent {
 const SONG_LIST = [
     {
         name: 'ido.mp3',
-        displayName: 'Cưới Nhau Đi'
+        displayName: 'I do'
     },
     {
         name: 'Beautiful In White.mp3',
@@ -87,7 +87,19 @@ const SONG_LIST = [
         displayName: 'Đám Cưới Như Mơ'
     },
     {
-        name: 'Mot Nha.mp3',
-        displayName: 'Một Nhà'
-    }
+        name: 'Dam Cuoi Tren Duong Que Remix.mp3',
+        displayName: 'Đán cưới trên đường quê'
+    },
+    {
+        name: 'Cuoi Nhau Di.mp3',
+        displayName: 'Cưới nhau đi'
+    },
+    {
+        name: 'Nam Lay Tay Anh.mp3',
+        displayName: 'Nắm Lấy Tay Anh'
+    },
+    {
+        name: 'Ngay Dau Tien.mp3',
+        displayName: 'Ngày Đầu Tiên'
+    },
 ];
