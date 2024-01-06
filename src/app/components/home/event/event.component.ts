@@ -5,7 +5,8 @@ import {
     EVENT_INFO_FEMALE,
     EVENT_INFO_MALE,
     GG_MAP_FEMALE,
-    GG_MAP_MALE
+    GG_MAP_MALE,
+    OPERATION_SYSTEM
 } from '../../../shared/constants';
 
 @Component({
@@ -35,14 +36,14 @@ export class EventComponent {
         let os = Utils.getMobileOperatingSystem();
 
         if (gender === 'male') {
-            if (os === 'iOS') {
+            if (os === OPERATION_SYSTEM.IOS) {
                 this.calendarService.downloadICSFile(EVENT_INFO_MALE);
             } else {
                 let urlGGCalendar = this.calendarService.genGoogleCalendarLink(EVENT_INFO_FEMALE);
                 window.open(urlGGCalendar);
             }
         } else {
-            if (os === 'iOS') {
+            if (os === OPERATION_SYSTEM.IOS) {
                 this.calendarService.downloadICSFile(EVENT_INFO_FEMALE);
             } else {
                 let urlGGCalendar = this.calendarService.genGoogleCalendarLink(EVENT_INFO_FEMALE);
