@@ -9,28 +9,41 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { StoryComponent } from './story/story.component';
 import { WishComponent } from './wish/wish.component';
 import { MusicComponent } from './music/music.component';
+import { GuestComponent } from './guest/guest.component';
+import { ActivatedRoute } from '@angular/router';
+import Utils from '../../shared/utils';
+import { SECRET_KEY } from '../../shared/constants';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [
-    NavbarComponent,
-    AboutComponent,
-    CarouselComponent,
-    EventComponent,
-    FooterComponent,
-    GalleryComponent,
-    StoryComponent,
-    WishComponent,
-    MusicComponent,
-    CommonModule
-  ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+    selector: 'app-home',
+    standalone: true,
+    imports: [
+        NavbarComponent,
+        AboutComponent,
+        CarouselComponent,
+        EventComponent,
+        FooterComponent,
+        GalleryComponent,
+        StoryComponent,
+        WishComponent,
+        MusicComponent,
+        GuestComponent,
+        CommonModule
+    ],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  
-  constructor() {
-  }
+    guest: any = '';
 
+    constructor(private route: ActivatedRoute) {}
+
+    ngOnInit(): void {
+        let guestParam = this.route.snapshot.queryParams['g'];
+
+        if (guestParam) {
+            // this.guest = Utils.AESDecrypt(guestParam, SECRET_KEY);
+            this.guest = guestParam;
+        }
+    }
 }

@@ -1,6 +1,7 @@
-import { OPERATION_SYSTEM } from './constants';
-import DEFAULT_BLACKLIST from './bad-word.json'
+import * as CryptoJS from 'crypto-js';
 import _ from 'lodash';
+import DEFAULT_BLACKLIST from './bad-word.json';
+import { OPERATION_SYSTEM } from './constants';
 
 export default class Utils {
     public static getMobileOperatingSystem = () => {
@@ -30,8 +31,18 @@ export default class Utils {
             `(\\s|^)(\\b${DEFAULT_BLACKLIST.join('\\b|\\b')}\\b)(\\s|$)`,
             'gi'
         );
-		text = text.normalize();
+        text = text.normalize();
 
         return regexp.test(text);
+    }
+
+    public static AESEncrypt(plainText: string, secretKey: string): string {
+        const encrypted = CryptoJS.AES.encrypt(plainText, secretKey).toString();
+        return encrypted;
+    }
+
+    public static AESDecrypt(cipherText: string, secretKey: string): string {
+        const decrypted = CryptoJS.AES.decrypt(cipherText, secretKey).toString(CryptoJS.enc.Utf8);
+        return decrypted;
     }
 }
