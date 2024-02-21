@@ -39,7 +39,7 @@ export class EventComponent {
             if (os === OPERATION_SYSTEM.IOS) {
                 this.calendarService.downloadICSFile(EVENT_INFO_MALE);
             } else {
-                let urlGGCalendar = this.calendarService.genGoogleCalendarLink(EVENT_INFO_FEMALE);
+                let urlGGCalendar = this.calendarService.genGoogleCalendarLink(EVENT_INFO_MALE);
                 window.open(urlGGCalendar);
             }
         } else {
