@@ -65,7 +65,7 @@
                                 <div *ngIf="message?.errors?.['required']">
                                     Một lời chúc tốt đẹp là không thể thiếu 💕
                                 </div>
-                                <div *ngIf="message?.errors?.['minlength'] || message?.errors?.['pattern']">
+                                <div *ngIf="message?.errors?.['minlength']">
                                     Hãy nhập lời chúc dài hơn một chút nữa nhé
                                 </div>
                                 <div *ngIf="username?.errors?.['maxlength']">

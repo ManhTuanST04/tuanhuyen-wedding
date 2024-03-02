@@ -16,6 +16,8 @@ import Utils from '../../../shared/utils';
     styleUrl: './wish.component.css'
 })
 export class WishComponent {
+    messageMaxlength: number = 1000;
+
     items: any[] = [];
     username!: FormControl;
     message!: FormControl;
@@ -40,8 +42,7 @@ export class WishComponent {
         this.message = new FormControl('', [
             Validators.required,
             Validators.minLength(10),
-            Validators.maxLength(250),
-            Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)
+            Validators.maxLength(this.messageMaxlength)
         ]);
         this.wishForm = new FormGroup({
             username: this.username,
@@ -63,7 +64,7 @@ export class WishComponent {
 
         if (username.length < 2 || username.length > 30) return false;
 
-        if (messageWish.length < 10 || messageWish.length > 250) return false;
+        if (messageWish.length < 10 || messageWish.length > this.messageMaxlength) return false;
 
         return true;
     };
