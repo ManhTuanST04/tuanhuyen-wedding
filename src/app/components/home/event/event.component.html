@@ -1,3 +1,45 @@
+<div class="container-fluid" id="story">
+    <div class="container pt-5 pb-3">
+        <div class="section-title position-relative text-center">
+            <div *ngIf="!isAfter; else elseBlock">
+                <h1 class="font-secondary display-4">Đồng hồ đếm ngược</h1>
+            </div>
+            <ng-template #elseBlock
+                ><h1 class="font-secondary display-4">Kỷ niệm ngày cưới</h1></ng-template
+            >
+
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px">24/03/2024</h6>
+            <i class="far fa-heart text-dark"></i>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center countdown-container" *ngIf="!isAfter">
+                <div class="box">
+                    <div>{{ days }}</div>
+                    <span>Ngày</span>
+                </div>
+                <div class="box">
+                    <div>{{ hours }}</div>
+                    <span>Giờ</span>
+                </div>
+                <div class="box">
+                    <div>{{ minutes }}</div>
+                    <span>Phút</span>
+                </div>
+                <div class="box">
+                    <div>{{ seconds }}</div>
+                    <span>Giây</span>
+                </div>
+            </div>
+            <div class="col-md-6 text-center countdown-container" *ngIf="isAfter">
+                <div class="box">
+                    <div>{{ daysDifference }}</div>
+                    <span>Ngày</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid py-5" id="event">
     <div class="container py-5">
         <div class="section-title position-relative text-center">
@@ -20,10 +62,14 @@
                     <h4 class="mb-3">TIỆC CƯỚI NHÀ NAM</h4>
                     <p class="mb-2">Tư gia gia đình Xương Lan</p>
                     <p class="mb-2">Khu 11, Quân Khê, Hạ Hòa, Phú Thọ</p>
-                    <p class="mb-2">10h 23-24/03/2024 Dương Lịch</p>
+                    <strong class="mb-2">23-24/03/2024 Dương Lịch</strong>
                     <p class="mb-2">14-15/02/2024 Âm Lịch</p>
 
-                    <button class="btn btn-primary font-weight-bold mt-3 mr-2 px-2" type="button" (click)="onAddEvent('male')">
+                    <button
+                        class="btn btn-primary font-weight-bold mt-3 mr-2 px-2"
+                        type="button"
+                        (click)="onAddEvent('male')"
+                    >
                         <i class="fa fa-calendar-plus pr-1"></i> Thêm vào lịch
                     </button>
                     <button
@@ -41,7 +87,7 @@
                     <h4 class="mb-3">TIỆC CƯỚI NHÀ NỮ</h4>
                     <p class="mb-2">Tư gia gia đình Hương Tạo</p>
                     <p class="mb-2">Tùng Châu, Đức Thọ, Hà Tĩnh</p>
-                    <p class="mb-2">10h 16-17/03/2024 Dương Lịch</p>
+                    <p class="mb-2">16-17/03/2024 Dương Lịch</p>
                     <p class="mb-2">07-08/02/2024 Âm Lịch</p>
 
                     <button
@@ -51,7 +97,11 @@
                     >
                         Mở bản đồ <i class="fa fa-map-marker-alt pl-1"></i>
                     </button>
-                    <button class="btn btn-primary font-weight-bold mt-3 px-2" type="button" (click)="onAddEvent('female')">
+                    <button
+                        class="btn btn-primary font-weight-bold mt-3 px-2"
+                        type="button"
+                        (click)="onAddEvent('female')"
+                    >
                         Thêm vào lịch <i class="fa fa-calendar-plus pl-1"></i>
                     </button>
                 </div>
