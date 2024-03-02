@@ -59,10 +59,6 @@ const SONG_LIST = [
         displayName: 'Beautiful In White'
     },
     {
-        name: 'Until You.mp3',
-        displayName: 'Until You'
-    },
-    {
         name: 'Ngay Cuoi.mp3',
         displayName: 'Ngày Cưới'
     },
@@ -73,10 +69,6 @@ const SONG_LIST = [
     {
         name: 'Mot Nha.mp3',
         displayName: 'Một Nhà'
-    },
-    {
-        name: 'Gap Doi Yeu Thuong.mp3',
-        displayName: 'Gấp Đôi Yêu Thương'
     },
     {
         name: 'Yeu Em Hon Moi Ngay.mp3',
