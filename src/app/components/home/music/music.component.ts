@@ -16,6 +16,7 @@ export class MusicComponent {
 
     constructor(private toastr: ToastrService) {
         this.audio = new Audio();
+        this.audio.addEventListener('ended', () => this.onMusicEnded());
     }
 
     randomSong(): Object {
@@ -36,16 +37,18 @@ export class MusicComponent {
             this.isAudioPlaying = true;
             this.songPlaying = song;
 
-            this.toastr.success(
-                `Đang phát ${song.displayName}`,
-                '',
-                {
-                    progressBar: true,
-                    progressAnimation: 'decreasing',
-                    positionClass: 'toast-bottom-center'
-                }
-            );
+            this.toastr.success(`Đang phát ${song.displayName}`, '', {
+                progressBar: true,
+                progressAnimation: 'decreasing',
+                positionClass: 'toast-bottom-center'
+            });
         }
+    }
+
+    onMusicEnded(): void {
+        console.log('Ending music');
+        this.isAudioPlaying = false;
+        this.songPlaying = '';
     }
 }
 
@@ -93,5 +96,5 @@ const SONG_LIST = [
     {
         name: 'Ngay Dau Tien.mp3',
         displayName: 'Ngày Đầu Tiên'
-    },
+    }
 ];
