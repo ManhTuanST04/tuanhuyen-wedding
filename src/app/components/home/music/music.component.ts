@@ -37,7 +37,7 @@ export class MusicComponent {
             this.isAudioPlaying = true;
             this.songPlaying = song;
 
-            this.toastr.success(`Đang phát ${song.displayName}`, '', {
+            this.toastr.success(`Đang phát: ${song.displayName}`, '', {
                 progressBar: true,
                 progressAnimation: 'decreasing',
                 positionClass: 'toast-bottom-center'
@@ -96,5 +96,9 @@ const SONG_LIST = [
     {
         name: 'Ngay Dau Tien.mp3',
         displayName: 'Ngày Đầu Tiên'
+    },
+    {
+        name: 'Lam Vo Anh Nhe.mp3',
+        displayName: 'Làm Vợ Anh Nhé'
     }
 ];
