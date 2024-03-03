@@ -100,5 +100,17 @@ const SONG_LIST = [
     {
         name: 'Lam Vo Anh Nhe.mp3',
         displayName: 'Làm Vợ Anh Nhé'
-    }
+    },
+    {
+        name: 'My Love.mp3',
+        displayName: 'My Love'
+    },
+    {
+        name: 'Marry You.mp3',
+        displayName: 'Marry You'
+    },
+    {
+        name: 'Ta La Cua Nhau.mp3',
+        displayName: 'Ta Là Của Nhau'
+    },
 ];
