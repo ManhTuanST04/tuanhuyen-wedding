@@ -1,0 +1,46 @@
+.quick-action-wrapper {
+    background-color: #edf5f7;
+}
+
+.donate-box {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.donate-box .donate-card {
+  position: relative;
+}
+
+.donate-box .donate-card {
+  width: calc(50% - 40px);
+  margin: 20px;
+  padding: 20px;
+  border: 3px solid #f23b43;
+  border-radius: 10px;
+}
+
+.donate-box .donate-card .qr-code-image {
+  max-width: 150px;
+  border: 1px solid #ccc;
+  padding: 3px;
+  margin: auto;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Thiết lập cho màn hình điện thoại hoặc kích thước màn hình nhỏ hơn */
+@media only screen and (max-width: 767px) {
+  .donate-box .donate-card {
+    width: calc(100% - 40px); /* Hiển thị full width với margin */
+    margin: 20px 0; /* Điều chỉnh margin để tránh margin bên trái và phải quá lớn */
+    padding: 20px;
+  }
+  
+  .donate-box .donate-card .qr-code-image {
+    max-width: 100%; /* Chiều rộng tối đa là 100% */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

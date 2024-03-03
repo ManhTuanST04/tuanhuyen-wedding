@@ -1,18 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { EventComponent } from './event/event.component';
 import { FooterComponent } from './footer/footer.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { GuestComponent } from './guest/guest.component';
+import { MoneyComponent } from './money/money.component';
+import { MusicComponent } from './music/music.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StoryComponent } from './story/story.component';
 import { WishComponent } from './wish/wish.component';
-import { MusicComponent } from './music/music.component';
-import { GuestComponent } from './guest/guest.component';
-import { ActivatedRoute } from '@angular/router';
-import Utils from '../../shared/utils';
-import { SECRET_KEY } from '../../shared/constants';
 
 @Component({
     selector: 'app-home',
@@ -28,6 +27,7 @@ import { SECRET_KEY } from '../../shared/constants';
         WishComponent,
         MusicComponent,
         GuestComponent,
+        MoneyComponent,
         CommonModule
     ],
     templateUrl: './home.component.html',
