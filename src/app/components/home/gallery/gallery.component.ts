@@ -1,9 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { forEach } from 'lodash';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-import { throwError } from 'rxjs';
 
 export interface PhotosApi {
     albumId?: number;
@@ -21,7 +18,7 @@ export interface PhotosApi {
     styleUrl: './gallery.component.css'
 })
 export class GalleryComponent {
-    maxImageItem = 18;
+    maxImageItem = 8;
     urlBaseAlbum = 'assets/img/tuanhuyen/album';
     albumData?: any = [];
 
@@ -30,19 +27,33 @@ export class GalleryComponent {
     }
 
     getDataImages() {
-        for (let i = 0; i < this.maxImageItem; i++) {
-            let imgId = i + 1;
-            let item: PhotosApi = {
+        let imgList = this.getRandomImages();
+        for (const item of imgList) {
+            let img: PhotosApi = {
                 albumId: 1,
-                id: imgId,
+                id: item,
                 title: 'Ảnh cưới Tuấn Huyền',
-                url: `${this.urlBaseAlbum}/${imgId}.jpg`,
-                thumbnailUrl: `${this.urlBaseAlbum}/${imgId}.jpg`
+                url: `${this.urlBaseAlbum}/${item}.jpg`,
+                thumbnailUrl: `${this.urlBaseAlbum}/${item}.jpg`
             };
 
-            this.albumData?.push(item);
+            this.albumData?.push(img);
         }
         console.log('this.albumData= ', this.albumData)
+    }
+
+    getRandomImages() {
+        var numbers = [];
+        
+        while (numbers.length < this.maxImageItem) {
+            var randomNum = Math.floor(Math.random() * 18) + 1;
+            
+            if (numbers.indexOf(randomNum) === -1) {
+                numbers.push(randomNum);
+            }
+        }
+    
+        return numbers;
     }
 
     customOptions: OwlOptions = {
@@ -71,7 +82,7 @@ export class GalleryComponent {
                 items: 4
             },
             1200: {
-                items: 6
+                items: 5
             }
         }
     };

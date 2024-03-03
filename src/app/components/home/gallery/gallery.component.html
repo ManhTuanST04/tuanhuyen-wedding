@@ -9,7 +9,7 @@
         <ng-container *ngFor="let slide of albumData">
             <ng-template carouselSlide [id]="slide.id">
                 <div class="gallery-item">
-                    <img [src]="slide.url" [alt]="slide.id" [title]="slide.id" />
+                    <img [src]="slide.url" [alt]="slide.id" [title]="slide.id" loading="lazy"/>
                     <a [href]="slide.url" data-lightbox="gallery">
                         <i class="fa fa-2x fa-plus text-white"></i>
                     </a>
