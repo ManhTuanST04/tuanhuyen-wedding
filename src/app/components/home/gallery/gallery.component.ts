@@ -21,7 +21,7 @@ export interface PhotosApi {
     styleUrl: './gallery.component.css'
 })
 export class GalleryComponent {
-    maxImageItem = 19;
+    maxImageItem = 18;
     urlBaseAlbum = 'assets/img/tuanhuyen/album';
     albumData?: any = [];
 
@@ -31,16 +31,18 @@ export class GalleryComponent {
 
     getDataImages() {
         for (let i = 0; i < this.maxImageItem; i++) {
+            let imgId = i + 1;
             let item: PhotosApi = {
                 albumId: 1,
-                id: i++,
+                id: imgId,
                 title: 'Ảnh cưới Tuấn Huyền',
-                url: `${this.urlBaseAlbum}/${i++}.jpg`,
-                thumbnailUrl: `${this.urlBaseAlbum}/${i++}.jpg`
+                url: `${this.urlBaseAlbum}/${imgId}.jpg`,
+                thumbnailUrl: `${this.urlBaseAlbum}/${imgId}.jpg`
             };
 
             this.albumData?.push(item);
         }
+        console.log('this.albumData= ', this.albumData)
     }
 
     customOptions: OwlOptions = {
@@ -69,7 +71,7 @@ export class GalleryComponent {
                 items: 4
             },
             1200: {
-                items: 5
+                items: 6
             }
         }
     };
