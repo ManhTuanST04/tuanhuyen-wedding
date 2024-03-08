@@ -47,7 +47,7 @@ DESCRIPTION:💍Lễ Thành Hôn Mạnh Tuấn & Khánh Huyền💍 \\nSự có 
 X-ALT-DESC;FMTTYPE=text/html:Lễ Thành Hôn Mạnh Tuấn & Khánh Huyền
 LOCATION:📍${eventData.LOCATION}
 BEGIN:VALARM
-TRIGGER:-PT30M
+TRIGGER:-P1D
 ACTION:DISPLAY
 DESCRIPTION:Reminder
 END:VALARM
