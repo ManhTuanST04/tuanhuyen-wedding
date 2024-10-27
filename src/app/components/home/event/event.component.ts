@@ -11,6 +11,8 @@ import {
 import Utils from '../../../shared/utils';
 import moment from 'moment';
 import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+import emailjs from '@emailjs/browser';
 
 @Component({
     selector: 'app-event',
@@ -20,7 +22,10 @@ import { CommonModule } from '@angular/common';
     styleUrl: './event.component.css'
 })
 export class EventComponent {
-    constructor(private calendarService: CalendarService) {}
+    constructor(
+        private calendarService: CalendarService,
+        private toastr: ToastrService
+    ) { }
 
     daysDifference: any = 0;
     isAfter: any = false;
@@ -50,6 +55,8 @@ export class EventComponent {
                 this.difference = this.difference <= 0 ? 0 : this.difference;
             }, 1000);
         }
+
+        this.checkAnniversary()
     }
 
     tickTock() {
@@ -68,7 +75,7 @@ export class EventComponent {
 
         const sortedDates = [currentDate, targetDate].sort((a: any, b: any) => a - b);
         this.daysDifference = sortedDates[1].diff(sortedDates[0], 'days');
-        if(this.daysDifference === 0) this.daysDifference = 1;
+        if (this.daysDifference === 0) this.daysDifference = 1;
 
         console.log('this.isAfter =' + this.isAfter);
     }
@@ -105,4 +112,51 @@ export class EventComponent {
             }
         }
     };
+
+    // sendMail(day: string) {
+    //     emailjs.init({
+    //         publicKey: 'rMbl48X95JYxit86_',
+    //         blockHeadless: true,
+    //         limitRate: {
+    //             throttle: 10000, // 10s
+    //         },
+    //     });
+
+    //     const templateParams = {
+    //         message: `Hôm nay là kỷ niệm ${day} ngày cưới`,
+    //     };
+
+    //     emailjs
+    //         .send('service_tuanhuyenwedding', 'template_wedding', templateParams, {
+    //             publicKey: 'rMbl48X95JYxit86_',
+    //         })
+    //         .then(
+    //             (response) => {
+    //                 console.log('SUCCESS!', response.status, response.text);
+    //             },
+    //             (err) => {
+    //                 console.log('FAILED...', err);
+    //             },
+    //         );
+    // }
+
+    checkAnniversary() {
+        const targetDate = moment(DATE_COUNT_DOWN, 'DD/MM/YYYY');
+        const currentDate = moment();
+
+        const daysDifference = currentDate.diff(targetDate, 'days');
+
+        if (daysDifference > 0 && daysDifference % 100 === 0) {
+            this.toastr.success(
+                `Hôm nay là kỷ niệm ${daysDifference} ngày cưới`,
+                'Ngày kỷ niệm',
+                {
+                    progressBar: true,
+                    progressAnimation: 'decreasing'
+                }
+            );
+
+            // this.sendMail(daysDifference.toString());
+        }
+    }
 }
