@@ -90,9 +90,8 @@
             <div class="col-lg-8 wish-list-wrap">
                 <div *ngFor="let item of items; index as i">
                     <div class="wish-item">
-                        {{ items.length - i }}.
-                        <strong>{{ item.username }}</strong
-                        >: {{ item.message }}
+                        {{ formatDateTime(item.createdAt) }} <br>
+                        <strong> {{ item.username }} </strong>:{{ item.message }}
                     </div>
                 </div>
             </div>

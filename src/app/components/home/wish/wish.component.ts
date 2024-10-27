@@ -108,4 +108,8 @@ export class WishComponent {
             console.log(err);
         }
     }
+
+    formatDateTime(originalDate : string) {
+        return moment(originalDate, 'YYYY/MM/DD HH:mm:ss').format('DD/MM/YYYY HH:mm:ss');
+    }
 }
