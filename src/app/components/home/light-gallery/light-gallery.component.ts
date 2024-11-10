@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild, ViewEncapsulation, VERSION } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { BeforeSlideDetail } from 'lightgallery/lg-events';
 import lightGallery from 'lightgallery';
 import lgZoom from 'lightgallery/plugins/zoom';
@@ -17,7 +17,6 @@ import { LightgalleryModule } from 'lightgallery/angular';
 	encapsulation: ViewEncapsulation.None
 })
 export class LightGalleryComponent {
-	name = "Angular " + VERSION.major;
 	settings = {
 		selector: '.lg-item',
 		counter: false,

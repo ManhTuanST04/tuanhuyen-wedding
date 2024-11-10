@@ -14,7 +14,11 @@ export const appConfig: ApplicationConfig = {
     provideFirebaseApp(() => initializeApp(environment.firebase))), 
     importProvidersFrom(provideFirestore(() => getFirestore())),
     provideAnimations(),
-    provideToastr(),
+    provideToastr({
+      maxOpened: 1, // Only one toast visible at a time
+      autoDismiss: true, // Automatically close old toast when new one appears
+      newestOnTop: true, // Display the newest toast on top
+    }),
     {
       provide: IMAGE_CONFIG,
       useValue: {
