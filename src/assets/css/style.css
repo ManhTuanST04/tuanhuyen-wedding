@@ -9503,7 +9503,7 @@ a.text-dark:hover, a.text-dark:focus {
   right: 30px;
   bottom: 30px;
   z-index: 11;
-  animation: action 1s infinite alternate;
+  /* animation: action 1s infinite alternate; */
 }
 
 .btn-circle {
