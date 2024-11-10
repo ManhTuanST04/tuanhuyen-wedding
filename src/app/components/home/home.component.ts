@@ -12,24 +12,26 @@ import { MusicComponent } from './music/music.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StoryComponent } from './story/story.component';
 import { WishComponent } from './wish/wish.component';
+import { LightGalleryComponent } from "./light-gallery/light-gallery.component";
 
 @Component({
     selector: 'app-home',
     standalone: true,
     imports: [
-        NavbarComponent,
-        AboutComponent,
-        CarouselComponent,
-        EventComponent,
-        FooterComponent,
-        GalleryComponent,
-        StoryComponent,
-        WishComponent,
-        MusicComponent,
-        GuestComponent,
-        MoneyComponent,
-        CommonModule
-    ],
+    NavbarComponent,
+    AboutComponent,
+    CarouselComponent,
+    EventComponent,
+    FooterComponent,
+    GalleryComponent,
+    StoryComponent,
+    WishComponent,
+    MusicComponent,
+    GuestComponent,
+    MoneyComponent,
+    CommonModule,
+    LightGalleryComponent
+],
     templateUrl: './home.component.html',
     styleUrl: './home.component.css'
 })
