@@ -12,7 +12,9 @@ import { MusicComponent } from './music/music.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { StoryComponent } from './story/story.component';
 import { WishComponent } from './wish/wish.component';
+import { AnniversaryComponent } from './anniversary/anniversary.component';
 import { LightGalleryComponent } from "./light-gallery/light-gallery.component";
+import { FloatingHeartsComponent } from "./floating-heart/floating-heart.component";
 
 @Component({
     selector: 'app-home',
@@ -30,7 +32,9 @@ import { LightGalleryComponent } from "./light-gallery/light-gallery.component";
     GuestComponent,
     MoneyComponent,
     CommonModule,
-    LightGalleryComponent
+    LightGalleryComponent,
+    AnniversaryComponent,
+    FloatingHeartsComponent
 ],
     templateUrl: './home.component.html',
     styleUrl: './home.component.css'
@@ -38,7 +42,7 @@ import { LightGalleryComponent } from "./light-gallery/light-gallery.component";
 export class HomeComponent {
     guest: any = '';
 
-    constructor(private route: ActivatedRoute) {}
+    constructor(private route: ActivatedRoute) { }
 
     ngOnInit(): void {
         let guestParam = this.route.snapshot.queryParams['g'];
