@@ -17,14 +17,7 @@ export class AnniversaryComponent {
     ) { }
 
     ngAfterViewInit() {
-        this.toastr.success(
-            'Chúc mừng 1 năm ngày cưới',
-            '1 Year Anniversary',
-            {
-                progressBar: true,
-                progressAnimation: 'decreasing'
-            }
-        );
+        
     }
     
 }
